@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         Indian_Quantum_Browser {
+            keyAlias 'devnnexe'
+            keyPassword 'xcaliber15081993'
+            storeFile file('/home/dev/AndroidStudioProjects/IndianQuantumBrowser/devannexe_signer.jks')
+            storePassword 'iloveyou15081993'
         }
     }
     buildToolsVersion '27.0.3'

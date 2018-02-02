@@ -1,5 +1,6 @@
 package com.devannexe.indianquantumbrowser;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SearchRecentSuggestionsProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class wv_activity extends AppCompatActivity {
    Button go;
    SearchView urledit;
    ListView listView;
-   
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
