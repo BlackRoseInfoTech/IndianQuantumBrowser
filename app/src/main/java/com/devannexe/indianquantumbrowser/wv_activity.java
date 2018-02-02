@@ -27,7 +27,7 @@ public class wv_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wv_activity);
         //Function Declaring
-        listView=(ListView)findViewById(R.id.btn_opt);
+        listView=(ListView)findViewById(R.id.listView);
         progress=(ProgressBar)findViewById(R.id.progressBar);
         brow=(WebView)findViewById(R.id.wv_brow);
         go=(Button)findViewById(R.id.btn_search);

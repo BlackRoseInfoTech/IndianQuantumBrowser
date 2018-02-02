@@ -4,6 +4,12 @@ android {
         Indian_Quantum_Browser {
         }
     }
+    buildToolsVersion '27.0.3'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 android {
     compileSdkVersion 27
@@ -17,7 +23,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
