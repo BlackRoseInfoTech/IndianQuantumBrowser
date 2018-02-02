@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "503224469062",
+    "firebase_url": "https://indianquantumbrowser.firebaseio.com",
+    "project_id": "indianquantumbrowser",
+    "storage_bucket": "indianquantumbrowser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503224469062:android:e40c89516bd38a3f",
+        "android_client_info": {
+          "package_name": "com.devannexe.indianquantumbrowser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503224469062-04cjdnkdd7ilduubackuqgkcn6n6i6im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devannexe.indianquantumbrowser",
+            "certificate_hash": "10add05c8dcaf861d0dd75484bcc31f43256078b"
+          }
+        },
+        {
+          "client_id": "503224469062-l29i07je6jiasv5fgqv1351ba5fql869.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP4_uyLXA8oaf-ag9qi84HpTYbvx0zeoc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503224469062-l29i07je6jiasv5fgqv1351ba5fql869.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
