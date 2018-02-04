@@ -33,7 +33,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/urledit" />
 
-
     <Button
         android:id="@+id/btn_search"
         android:layout_width="36dp"
@@ -56,10 +55,10 @@
 
     <WebView
         android:id="@+id/wv_brow"
-        android:layout_width="0dp"
+        android:layout_width="408dp"
         android:layout_height="0dp"
         android:background="#FFFFFF"
-        android:elevation="2dp"
+        android:elevation="8dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
