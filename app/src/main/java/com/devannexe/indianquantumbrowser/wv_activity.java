@@ -3,6 +3,9 @@ package com.devannexe.indianquantumbrowser;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SearchRecentSuggestionsProvider;
+import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
@@ -23,17 +27,21 @@ public class wv_activity extends AppCompatActivity {
    SearchView urledit;
    ListView listView;
 
+    @SuppressLint("SetJavaScriptEnabled")
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wv_activity);
         //Function Declaring
-        listView=(ListView)findViewById(R.id.listView);
-        progress=(ProgressBar)findViewById(R.id.progressBar);
-        brow=(WebView)findViewById(R.id.wv_brow);
-        go=(Button)findViewById(R.id.btn_search);
-        urledit=(SearchView)findViewById(R.id.urledit);
-
+        listView= findViewById(R.id.listView);
+        progress= findViewById(R.id.progressBar);
+        brow= findViewById(R.id.wv_brow);
+        go= findViewById(R.id.btn_search);
+        urledit= findViewById(R.id.urledit);
+        ((EditText) findViewById(R.id.urledit).findViewById( findViewById(R.id.urledit).getContext().getResources().getIdentifier("android:id/search_src_text", null, null))).setTextColor(Color.BLACK);
+        ((EditText) findViewById(R.id.urledit).findViewById( findViewById(R.id.urledit).getContext().getResources().getIdentifier("android:id/search_src_text", null, null))).setHintTextColor(Color.BLACK);
+        ((EditText) findViewById(R.id.urledit).findViewById( findViewById(R.id.urledit).getContext().getResources().getIdentifier("android:id/search_src_text", null, null))).setHintTextColor(Color.BLACK);
         brow.setWebViewClient(new ourViewClient());
         brow.setWebChromeClient(new WebChromeClient(){
             @Override
@@ -69,6 +77,7 @@ public class wv_activity extends AppCompatActivity {
         urledit.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                brow.setVisibility(View.VISIBLE);
                 String editextvalue = urledit.getQuery().toString();
                 if (!editextvalue.startsWith("http:\\"))
                     editextvalue = "https:\\" + editextvalue;
@@ -76,6 +85,7 @@ public class wv_activity extends AppCompatActivity {
                 brow.loadUrl(url);
                 //HIDE kEYBOARD AFTER CLICKING GO BUTTON
                 InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                assert imm != null;
                 imm.hideSoftInputFromWindow(urledit.getWindowToken(),0);
                 return false;
             }
@@ -87,19 +97,16 @@ public class wv_activity extends AppCompatActivity {
                 return false;
             }
         });
-        go.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String editextvalue = urledit.getQuery().toString();
-                if (!editextvalue.startsWith("http:\\"))
-                    editextvalue = "https:\\" + editextvalue;
-                String url = editextvalue;
-                brow.loadUrl(url);
-                //HIDE kEYBOARD AFTER CLICKING GO BUTTON
-                InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(urledit.getWindowToken(),0);
-            }
-        });
-
+        go.setOnClickListener( v -> {
+            String editextvalue = urledit.getQuery().toString();
+            if (!editextvalue.startsWith("http:\\"))
+                editextvalue = "https:\\" + editextvalue;
+            String url = editextvalue;
+            brow.loadUrl(url);
+            //HIDE kEYBOARD AFTER CLICKING GO BUTTON
+            InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            assert imm != null;
+            imm.hideSoftInputFromWindow(urledit.getWindowToken(),0);
+        } );
     }
 }
